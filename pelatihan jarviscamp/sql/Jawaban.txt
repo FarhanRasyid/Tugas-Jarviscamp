@@ -1,0 +1,22 @@
+1. membuat database myshop
+ create database myshop;
+2.membuat table 
+- create table user(id int(20) auto_increment primary key, nama varchar(255), email varchar(255), password varchar(255));
+- create table categories(id int(20) auto_increment primary key, nama varchar(255));
+-  create table items(id int(20) auto_increment primary key, nama varchar(255), description varchar(255), price int(20), stock int(20),category_id int, constraint category_id foreign key (category_id) references categories (id));
+3. insert into 
+-  insert into user (nama,email,password) values ('John Doe','john@doe.com','john123'),('Jane Doe','jane@doe.com','jenita123');
+- insert into categories (nama) values ('gadget'),('cloth'),('men'),('women'),('branded');
+- insert into items (nama,description,price,stock,category_id) values ('Sumsang b50','hape keren dari merek sumsang',4000000,100,1),('Sumsang b50','hape keren dari merek sumsang',4000000,100,1),('Uniklooh','baju keren dari brand ternama',500000,50,2),('IMHO Watch','jam tangan anak yang jujur banget',2000000,10,1);
+
+4. menampilkan
+ 1.  select id,nama,email from user;
+ 2. a. select*from items where price > 1000000;
+   b. select*from items where nama like '%uniklo%';
+   c. select*from items where nama like '%watch%';
+   d. select*from items where nama like '%sang%';
+ 3.  select items.nama, description, price, stock, category_id, categories.nama as category from items inner join categories on items.category_id = categories.id;
+5. mengupdate
+
+update items set price = 2500000 where nama = 'Sumsang b50';
+ 
